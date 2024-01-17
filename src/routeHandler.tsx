@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import SignupPage from './signup/signup.tsx'
+import SignupPage from './app/signup/signup.tsx'
 
 const router = createBrowserRouter([
   {

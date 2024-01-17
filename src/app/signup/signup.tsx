@@ -1,7 +1,7 @@
 import React from 'react'
-import OAuth from '../ui/oAuth/oAuth';
-import styles from "./signup.module.css";
-import NavBasic from '../ui/navBasic/navBasic';
+import OAuth from '@ui/oAuth/oAuth';
+import styles from './signup.module.css';
+import NavBasic from '@ui/navBasic/navBasic';
 
 
 // type SignUpProps = {
