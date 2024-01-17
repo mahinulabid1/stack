@@ -136,11 +136,8 @@ input[type='submit']:hover {
 
 .signInButton {
   border: none;
-  font-size : 16px;
-  font-family: 'Inter', sans-serif;
   color: #377DFF;
   background: none;
   font-weight: 500;
-  cursor :pointer;
   margin-left :10px;
 }
