@@ -1,0 +1,21 @@
+.appleIcon {
+  position: relative;
+  top: -3px;
+}
+
+.openAuthBtn {
+  width: 255px;
+  line-height: 58px;
+  border-radius: 16px;
+  padding: 0 25px;
+  font-size: 16px;
+  color: #8A94A6;
+  border: none;
+  background: #F0F5FA;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 30px;
+}
+
+.openAuthBtn img {
+  margin-right: 13px;
+}
