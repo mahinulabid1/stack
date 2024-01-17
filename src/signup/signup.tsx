@@ -1,7 +1,7 @@
 import React from 'react'
 import OAuth from '../ui/oAuth/oAuth';
 import styles from "./signup.module.css";
-
+import NavBasic from '../ui/navBasic/navBasic';
 
 
 // type SignUpProps = {
@@ -14,11 +14,12 @@ const SignupPage: React.FC = () => {
 
   return (
     <>
+      <NavBasic />
       <section className={styles.section}>
         <div className={styles.centerContainer}>
           <h2 className={styles.heading}> Getting Started </h2>
           <h3 className={styles.subHeading}> Create an account to continue! </h3>
-          
+
           <OAuth />
 
           <span className={styles.or}>OR</span>
