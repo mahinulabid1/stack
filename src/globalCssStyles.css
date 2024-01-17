@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-family: 'Inter', sans-serif;
+  /* font-family: 'Oswald', sans-serif;
+  font-family: 'Roboto', sans-serif; */
+  font-size: 16px;
+  font-weight: 500;
+  color: #8A94A6;
+  background: var(--BG-4, #FFF);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+
+
+/* flex styling */
+.dFlex {
+  display: flex;
+}
+
+.dSpaceBetween {
+  justify-content: space-between;
+}
+
+.dAlignItemsCenter {
+  align-items: center;
+}

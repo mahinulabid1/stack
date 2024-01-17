@@ -1,0 +1,86 @@
+.styles {
+  width: 100%;
+}
+
+.centerContainer {
+  width: 545px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 100px;
+}
+
+.heading {
+  margin-bottom: 19px;
+  color: #323B4B;
+}
+
+.subHeading {
+  margin-bottom: 30px;
+  color: #8A94A6;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.heading,
+.subHeading {
+  text-align: center;
+}
+
+
+.appleIcon {
+  position: relative;
+  top: -3px;
+}
+
+.openAuthBtn {
+  width: 255px;
+  line-height: 58px;
+  border-radius: 16px;
+  padding: 0 25px;
+  font-size: 16px;
+  color: #8A94A6;
+  border: none;
+  background: #F0F5FA;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 30px;
+}
+
+.openAuthBtn img {
+  margin-right: 13px;
+}
+
+.or {
+  text-align: center;
+  position: relative;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.or::before,
+.or::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #F0F5FA;
+  width: 45%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.or::after {
+  right: 0;
+}
+
+/* FORM STYLES */
+.inputContainer {
+  position: relative;
+}
+
+.formInput {
+  line-height: 58px;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid #F3F3F3;
+  background: #FFF;
+}
