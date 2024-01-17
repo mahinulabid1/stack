@@ -1,0 +1,43 @@
+
+.heading {
+  margin-bottom: 19px;
+  color: #323B4B;
+}
+
+.subHeading {
+  margin-bottom: 30px;
+  color: #8A94A6;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.heading,
+.subHeading {
+  text-align: center;
+}
+
+
+
+
+.or {
+  text-align: center;
+  position: relative;
+  display: block;
+  margin-bottom: 30px;
+}
+
+.or::before,
+.or::after {
+  content: '';
+  display: block;
+  height: 2px;
+  background: #F0F5FA;
+  width: 45%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.or::after {
+  right: 0;
+}
