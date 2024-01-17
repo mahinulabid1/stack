@@ -8,7 +8,7 @@ export default defineConfig({
     alias: {
       "@": path.resolve(__dirname, "./src/"),
       "@ui": `${path.resolve(__dirname, "./src/app/ui/")}`,
-      services: `${path.resolve(__dirname, "./src/services/")}`,
+      "@app": `${path.resolve(__dirname, "./src/app/")}`,
     }
   }
 });
