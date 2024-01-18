@@ -9,6 +9,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src/"),
       "@ui": `${path.resolve(__dirname, "./src/app/ui/")}`,
       "@app": `${path.resolve(__dirname, "./src/app/")}`,
+      "@additionalFunction": `${path.resolve(__dirname, "./src/additionalFunction/")}`,
+      "@store" :  `${path.resolve(__dirname, "./src/store/")}`,
     }
   }
 });

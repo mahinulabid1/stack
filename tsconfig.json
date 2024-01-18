@@ -4,7 +4,9 @@
     "paths": {
       "@/*": ["./src/*"],
       "@ui/*": ["./src/app/ui/*"],
-      "@app/*": ["./src/app/*"]
+      "@app/*": ["./src/app/*"],
+      "@additionalFunction/*" : ["./src/additionalFunction/*"],
+      "@store/*" : ["./src/store/*"]
     },
     "target": "ES2020",
     "useDefineForClassFields": true,
