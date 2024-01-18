@@ -1,0 +1,12 @@
+.passStrengthContainer {
+  padding: 0 18px;
+  margin-bottom: 30px;
+}
+
+.passStrengthContainer div {
+  width: 68px;
+  height: 4px;
+  border-radius: 2px;
+  background: #F3F3F3;
+  position: relative;
+}

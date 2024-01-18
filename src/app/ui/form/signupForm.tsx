@@ -1,55 +1,67 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { useSelector } from 'react-redux';
 import styles from './formStyle.module.css'
+import PassStrengthIndicator from './passStrengthIndicator';
+import EmailInput from './module/signUp/emailInput';
+import NameInput from './module/signUp/nameInput';
+import PasswordInput from './module/signUp/passwordInput';
+import TermsAndCondition from './module/signUp/termsAndCondition';
+import SignUpButton from './module/signUp/signUpButton';
 
 const SignUpForm: React.FC = () => {
+
+  // Access the state from the store
+  const emailState = useSelector((state: any) => state.signUpState.email);  // signUpState = name from store.tsx= reducer{}
+  const nameState = useSelector((state: any) => state.signUpState.name);
+  const passwordState = useSelector((state: any) => state.signUpState.password);
+  const termsAndConditionState = useSelector((state: any) => state.signUpState.termsAndCondition);
+  const passStrengthState = useSelector((state: any) => state.signUpState.passStrength);
+  const isFormValidState = useSelector((state: any) => state.signUpState.isFormValid);
+
   return (
     <>
-      <form action="#" method='post'>
+      <form>
         {/* email */}
-        <div className={styles.inputContainer} key={'01'}>
-          <img src="./emailIcon.svg" alt="" />
-          <input className={styles.formInput} type="text" placeholder='Your Email' name='useremail' />
-        </div>
+        <EmailInput />
 
         {/* Your Full Name */}
-        <div className={styles.inputContainer} key={'02'}>
-          <img src="./smileyIcon.svg" alt="" />
-          <input className={styles.formInput} type="text" placeholder='Your Name' name='name' />
-        </div>
+        <NameInput />
 
         {/* password */}
-        <div className={styles.inputContainer} key={'03'}>
-          <img src="./lockIcon.svg" alt="" />
-          <input className={styles.formInput} type="password" placeholder='Your Name' name='name' />
+        <PasswordInput />
 
-          <img src="./eye.svg" alt="" />
-
-        </div>
 
         {/* password strength indicator */}
-        <div className={styles.passStrengthContainer + " dFlex dSpaceBetween"}>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+        <div className={styles.inputSection}>
+          <PassStrengthIndicator strength={passStrengthState} />
         </div>
 
-        <div className={styles.inputContainer} key={'04'}>
-          <input type="checkbox" name='terms&condition' />
-          <label htmlFor='terms&condition'>I agree to the Terms & Conditions</label>
+        {/* terms and conditions */}
+        <TermsAndCondition />
+
+        {/* sign up button */}
+        <SignUpButton />
+
+        {/* already have an acccount? */}
+        <div className={styles.inputSection}>
+          <p className={styles.alreadyHaveAcc}>
+            Already have an account?
+            <a href="/signin" className={styles.signInButton}> Sign In</a>
+          </p>
         </div>
 
-        <div className={styles.inputContainer} key={'04'}>
-          <input type='submit' value='Sign Up' />
-        </div>
-
-        <p className={styles.alreadyHaveAcc}>
-          Already have an account?
-          <a href="/signin" className={styles.signInButton}> Sign In</a>
-        </p>
       </form>
+
+
+
+
+      TEST PHASE <br/> <br/>
+      {`name state:___ ${nameState}`} , <br/>
+      {`email state:___ ${emailState}`}, <br/>
+      {`password State:___ ${passwordState}`}, <br/>
+      {`terms and condition:___ ${termsAndConditionState}`}, <br/>
+      {`password Strength:___ ${passStrengthState}`}, <br/>
+      {`is the form valid:___ ${isFormValidState}`} <br/>
     </>
   )
 }
