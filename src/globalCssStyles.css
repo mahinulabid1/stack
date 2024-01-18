@@ -45,6 +45,10 @@ button {
   cursor: pointer;
 }
 
+.dNone {
+  display :none;
+}
+
 /* flex styling */
 .dFlex {
   display: flex;

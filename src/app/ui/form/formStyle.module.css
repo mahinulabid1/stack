@@ -1,8 +1,10 @@
-
 /* FORM STYLES */
+.inputSection {
+  margin-bottom: 30px;
+}
+
 .inputContainer {
   position: relative;
-  margin-bottom: 30px;
 }
 
 .inputContainer img,
@@ -43,29 +45,19 @@
 }
 
 
-.passStrengthContainer {
-  padding: 0 18px;
-  margin-bottom :30px;
-}
 
-.passStrengthContainer div {
-  width: 68px;
-  height: 4px;
-  border-radius: 2px;
-  background: #F3F3F3;
-}
 
 input[type="checkbox"] {
   margin-right: 17px;
 }
 
-input[type='submit'] {
-  border : none;
-  background :#377DFF;
+.submitButton {
+  border: none;
+  background: #377DFF;
   color: #FFF;
-  width :100%;
-  line-height :58px;
-  border-radius :16px;
+  width: 100%;
+  line-height: 58px;
+  border-radius: 16px;
   border: 1px solid #377DFF;
 
   font-size: 16px;
@@ -73,11 +65,11 @@ input[type='submit'] {
   cursor: pointer;
 }
 
-input[type='submit']:hover {
-  background :#1263fa;
+.submitButton:hover {
+  background: #1263fa;
 }
 
-.alreadyHaveAcc{
+.alreadyHaveAcc {
   text-align: center;
 }
 
@@ -86,5 +78,11 @@ input[type='submit']:hover {
   color: #377DFF;
   background: none;
   font-weight: 500;
-  margin-left :10px;
+  margin-left: 10px;
+}
+
+.errorMessage {
+  color: #FF5630;
+  font-size: 14px;
+  margin-top: 16px;
 }
