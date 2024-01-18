@@ -1,8 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import styles from './formStyle.module.css'
-import EmailInput from './module/signUp/emailInput';
-import PasswordInput from './module/signUp/passwordInput';
+
+import EmailInput from './module/signIn/emailInput';
+import PasswordInput from './module/signIn/passwordInput';
 import RememberMeInput from './module/signIn/rememberMeInput';
 import SignInButton from './module/signIn/signInButton';
 
