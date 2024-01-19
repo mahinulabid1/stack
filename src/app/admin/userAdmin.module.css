@@ -1,4 +1,10 @@
-.bodyContainer{
+.bodyContainer {
   width: 1440px;
   margin: 0 auto;
+}
+
+.devMode {
+  position: absolute;
+  bottom :100px;
+  left: 30%;
 }
