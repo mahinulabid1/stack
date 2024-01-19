@@ -61,3 +61,7 @@ button {
 .dAlignItemsCenter {
   align-items: center;
 }
+
+.dSpaceAround {
+  justify-content: space-around;
+}
