@@ -4,11 +4,13 @@ import SignInForm from '../ui/form/signInForm';
 import NavBasic from '@ui/navBasic/navBasic';
 // import styles from "./signIn.module.css";
 import SignIAndSignUpTemplate from '../ui/Template/signInAndSignUp/signInAndSignUpTemplate';
+import HelmetComponent from '../helmet';
 
 
 const SignInPage : React.FC = () => {
   return (
     <>
+      <HelmetComponent title="Stack - Sign In" />
       <NavBasic />
       <SignIAndSignUpTemplate 
         Head={
