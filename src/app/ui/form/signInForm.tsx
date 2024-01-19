@@ -22,10 +22,9 @@ const SignInForm: React.FC = () => {
   const [signInBtnText, setSignInBtnText] = useState<string>('Sign In')
   const [errorDisplay, setErrorDisplay] = useState<string>('dNone')
 
-  // Access the state from the store
-  const emailState = useSelector((state: any) => state.signInState.email);  // signInState = name from store.tsx= reducer{}
+
+  const emailState = useSelector((state: any) => state.signInState.email); 
   const passwordState = useSelector((state: any) => state.signInState.password);
-  const rememberMeState = useSelector((state: any) => state.signInState.rememberMe);
   const isFormValidState = useSelector((state: any) => state.signInState.isFormValid);
   const loadingMessageState = useSelector((state: any) => state.loadingState.message);
 
@@ -35,8 +34,8 @@ const SignInForm: React.FC = () => {
     if (isFormValidState) {
       console.log(emailState)
       const data = {
-        email: emailState, // reqres.in API not accepting any other username 'eve.holt@reqres.in'
-        password: passwordState // reqres.in API  accepting all password 
+        email: emailState, 
+        password: passwordState 
       }
 
       setSignInBtnText("Authenticating")
@@ -48,11 +47,9 @@ const SignInForm: React.FC = () => {
   }
 
 
-  // if "login" successful, set token cookie and redirect to dashboard
+  // if "login" successful, set token cookie and redirect to admin
   useEffect(() => {
     if (loginError) {
-      // show user and password wrong
-      // reverse signin button text
       setSignInBtnText("Sign In")
       setErrorDisplay('');
       setIsFormValid(false);
@@ -60,8 +57,7 @@ const SignInForm: React.FC = () => {
     else if (loginData) {
 
       setCookie('token', loginData.token);
-      setCookie('username', emailState); // this "eve.holt@reqres.in" gets decoded into "eve.holt%40reqres.in". 
-      // make loadingScreen visible
+      setCookie('username', emailState);  
       dispatch(setMessage('Authentication Successful. Loading user dashboard.'))
       setLoadingDisplay('');
 
@@ -79,12 +75,6 @@ const SignInForm: React.FC = () => {
       navigate('/useradmin')
     }
   }, [])
-
-
-  // user clicked sign in - 
-  // change sign in text to "authenticating"
-  // if authentication successful make loading screen visible >> redirect to admin
-  // if user name and password are wrong  >> change authenticating to sign up >> show error message
 
 
   return (

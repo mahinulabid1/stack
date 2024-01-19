@@ -10,7 +10,6 @@ import PasswordInput from './module/signUp/passwordInput';
 import TermsAndCondition from './module/signUp/termsAndCondition';
 import SignUpButton from './module/signUp/signUpButton';
 import Loading from '@app/loading/loading';
-
 import {
   useCreateNewUserMutation,
   useLoginMutation
@@ -27,17 +26,17 @@ const SignUpForm: React.FC = () => {
   const [cookie, setCookie] = useCookies<string>(['token', 'username']);
   const [loadingDisplay, setLoadingDisplay] = useState<string>('dNone');
 
-  // Access the state from the store || REDUX GLOBAL STATE
-  const emailState = useSelector((state: any) => state.signUpState.email);  // signUpState = name from store.tsx= reducer{}
+
+  const emailState = useSelector((state: any) => state.signUpState.email); 
   const nameState = useSelector((state: any) => state.signUpState.name);
   const passwordState = useSelector((state: any) => state.signUpState.password);
-  const termsAndConditionState = useSelector((state: any) => state.signUpState.termsAndCondition);
+
   const passStrengthState = useSelector((state: any) => state.signUpState.passStrength);
   const isFormValidState = useSelector((state: any) => state.signUpState.isFormValid);
   const loadingMessageState = useSelector((state: any) => state.loadingState.message);
 
   //initialize RTK QUERY 
-  const [createNewUser, { data: newUserData, error: newUserError, isLoading: isLoadingNewUser }] = useCreateNewUserMutation();  //data:newUserData , this is not complex destruction. I'm simply renaming the variable. "data" give it a new name "newUserData". That's what it means
+  const [createNewUser, { data: newUserData, error: newUserError, isLoading: isLoadingNewUser }] = useCreateNewUserMutation();  
   const [login, { data: loginData, error: loginError, isLoading: isLoadingLogin }] = useLoginMutation();
 
 
@@ -59,25 +58,6 @@ const SignUpForm: React.FC = () => {
     }
   }
 
-  // if form is valid, perform - create new user
-  // useEffect(() => {
-  //   console.log('validating!')
-  //   if (isFormValidState) {
-  //     let data: any = {
-  //       email: emailState,
-  //       password: passwordState,
-  //       name: nameState
-  //     }
-
-  //     dispatch(setMessage('Hold On! Attempting to create new user.'))
-  //     setLoadingDisplay('')
-
-  //     setTimeout(() => {
-  //       createNewUser(data);
-  //     }, 1000)
-  //   }
-  // }, [isFormValidState])
-
 
 
 
@@ -93,10 +73,10 @@ const SignUpForm: React.FC = () => {
       dispatch(setMessage('Creating New User...'))
     }
     else if (newUserData) {
-      // perform login query and redirect to dashboard
+
       const data = {
-        email: 'eve.holt@reqres.in', // reqres.in API not accepting any other username
-        password: passwordState // reqres.in API  accepting all password 
+        email: 'eve.holt@reqres.in', 
+        password: passwordState 
       }
       login(data);
       dispatch(setMessage('Successfully created new user! Loading user administration'))
