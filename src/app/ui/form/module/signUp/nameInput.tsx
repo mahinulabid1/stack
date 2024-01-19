@@ -1,18 +1,10 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import styles from '@ui/form/formStyle.module.css'
 import { useDispatch, useSelector } from 'react-redux';
+import formValidate from '@additionalFunction/formValidation';
 import {
-  setEmail,
   setName,
-  setPassword,
-  setTermsAndCondition,
-  setPassStrength,
   setIsFormValid,
-
-  setEmailErrDisplay,
-  setNameErrDisplay,
-  setPasswordErrDisplay,
-  setTermsAndConditionErrDisplay
 } from '@store/signUpSlice';
 
 
@@ -25,16 +17,21 @@ const NameInput: React.FC = () => {
   // Step 2: Access the state from the store
   const emailState = useSelector((state: any) => state.signUpState.email);  // signUpState = name from store.tsx= reducer{}
   const nameState = useSelector((state: any) => state.signUpState.name);
-  const passwordState = useSelector((state: any) => state.signUpState.password);
   const termsAndConditionState = useSelector((state: any) => state.signUpState.termsAndCondition);
   const passStrengthState = useSelector((state: any) => state.signUpState.passStrength);
-  const isFormValidState = useSelector((state: any) => state.signUpState.isFormValid);
-
-  const emailErrDisplayState = useSelector((state: any) => state.signUpState.emailErrDisplay);
   const nameErrDisplayState = useSelector((state: any) => state.signUpState.nameErrDisplay);
-  const passwordErrDisplayState = useSelector((state: any) => state.signUpState.passwordErrDisplay);
-  const termsAndConditionErrDisplayState = useSelector((state: any) => state.signUpState.termsAndConditionErrDisplay);
 
+
+  useEffect(() => {
+    formValidate.signUp({
+      emailState,
+      nameState,
+      passStrengthState,
+      termsAndConditionState,
+      setIsFormValid,
+      dispatch
+    });
+  }, [nameState])
 
   return (
     <>
@@ -46,7 +43,10 @@ const NameInput: React.FC = () => {
             type="text"
             placeholder='Your Name'
             name='name'
-            onChange={event => dispatch(setName(event.target.value))}
+            onChange={event => {
+              dispatch(setName(event.target.value));
+            }}
+            
           />
         </div>
 

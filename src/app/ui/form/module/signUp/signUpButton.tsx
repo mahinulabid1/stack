@@ -12,9 +12,11 @@ import {
   setTermsAndConditionErrDisplay
 } from '@store/signUpSlice';
 
+interface ComponentProps {
+  clickHandler : any
+}
 
-
-const SignUpButton: React.FC = () => {
+const SignUpButton: React.FC<ComponentProps> = ({clickHandler}) => {
 
   //connect to redux store
   const dispatch = useDispatch();
@@ -33,14 +35,15 @@ const SignUpButton: React.FC = () => {
             className={styles.submitButton}
             onClick={(e) => {
               // formValidation();
-              formValidate.signUp({
-                emailState,
-                nameState,
-                passStrengthState,
-                termsAndConditionState,
-                setIsFormValid,
-                dispatch
-              })
+              // formValidate.signUp({
+              //   emailState,
+              //   nameState,
+              //   passStrengthState,
+              //   termsAndConditionState,
+              //   setIsFormValid,
+              //   dispatch
+              // })
+              clickHandler();
 
               errorDisplayHandler.handler.signUp({
                 dispatch,

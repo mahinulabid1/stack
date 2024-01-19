@@ -9,8 +9,14 @@ import {
   setPasswordErrDisplay
 } from '@store/signInSlice';
 
-const SignInButton: React.FC = () => {
+interface ComponentProps {
+  buttonMessage :string
+  clickHandler: any
+}
+
+const SignInButton: React.FC<ComponentProps> = ({buttonMessage, clickHandler}) => {
   const dispatch = useDispatch();
+
 
   // Access the state from the store
   const emailState = useSelector((state: any) => state.signInState.email);  // signInState = name from store.tsx= reducer{}
@@ -38,11 +44,13 @@ const SignInButton: React.FC = () => {
                 setEmailErrDisplay,
                 setPasswordErrDisplay
               })
+
+              clickHandler();
               e.preventDefault();
             }}
           >
 
-            Sign In
+            {buttonMessage}
           </button>
         </div>
       </div>
