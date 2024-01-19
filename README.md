@@ -7,7 +7,7 @@ It fetches data from API using `RTK query`.
 
 ## Download and Test
 Follow this step to test: 
-* Download this repo by clicking this link : 
+* Download or clone this repo 
 * Add this folder to `vs code workspace`.
 * Start development server: 
 ```console
