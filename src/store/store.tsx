@@ -3,12 +3,14 @@ import { setupListeners } from '@reduxjs/toolkit/query'
 import { API } from './apiSlice';
 import signUpReducer from './signUpSlice';
 import signInReducer from './signInSlice';
+import loadingSlice from './loadingSlice';
 
 export const store = configureStore({
   reducer: {
     // have to add all modular reducer here
     signUpState: signUpReducer,
     signInState: signInReducer, // related to redux global state
+    loadingState: loadingSlice,
     [API.reducerPath ] : API.reducer, // related to RTK query
   },
 
