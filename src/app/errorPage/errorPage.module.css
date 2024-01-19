@@ -1,0 +1,17 @@
+.errorHeading{
+  text-align: center;
+  margin-top: 200px;
+  font-size: 50px;
+}
+
+.redirectText{
+  text-align: center;
+  margin-top :20px;
+  font-size: 22px;
+  font-weight: 300;
+}
+
+.redirectTextSpan{
+  text-decoration: underline;
+  font-weight: 500;
+}
