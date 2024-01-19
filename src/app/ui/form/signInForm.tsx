@@ -69,7 +69,7 @@ const SignInForm: React.FC = () => {
   }, [loginData, loginError, isLoadingLogin])
 
 
-  // restrict loggedin user from revisiting signIn
+  // protect route
   useEffect(() => {
     if (cookie.token) {
       navigate('/useradmin')

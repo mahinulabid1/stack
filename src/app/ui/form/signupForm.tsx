@@ -35,7 +35,6 @@ const SignUpForm: React.FC = () => {
   const isFormValidState = useSelector((state: any) => state.signUpState.isFormValid);
   const loadingMessageState = useSelector((state: any) => state.loadingState.message);
 
-  //initialize RTK QUERY 
   const [createNewUser, { data: newUserData, error: newUserError, isLoading: isLoadingNewUser }] = useCreateNewUserMutation();  
   const [login, { data: loginData, error: loginError, isLoading: isLoadingLogin }] = useLoginMutation();
 
@@ -64,12 +63,9 @@ const SignUpForm: React.FC = () => {
   // if "create new user" is successful, perform "login" query
   useEffect(() => {
     if (newUserError) {
-      console.log(newUserError);
-      // redirect to error page
       dispatch(setMessage('There is an error while performing operation!'))
     }
     else if (isLoadingNewUser) {
-      console.log("Processing new user data!")
       dispatch(setMessage('Creating New User...'))
     }
     else if (newUserData) {
@@ -86,7 +82,7 @@ const SignUpForm: React.FC = () => {
 
 
 
-  // if "login" successful, set token cookie and redirect to dashboard
+  // if "login" successful, set token cookie and redirect to admin
   useEffect(() => {
     if (loginError) {
       console.log(loginError)
@@ -105,7 +101,7 @@ const SignUpForm: React.FC = () => {
 
 
 
-  // restrict loggedin user from revisiting signIn
+  // protect route
   useEffect(() => {
     if (cookie.token) {
       navigate('/useradmin')
