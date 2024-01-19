@@ -1,0 +1,38 @@
+.sidebarContainer{
+  padding: 31px 17px 0px 17px;
+  border-right: 1px solid #F3F3F3;
+  min-height :100vh;
+  width: 249px;
+}
+
+.navHeading {
+  margin-top: 42px;
+  font-size :12px;
+  font-weight: 500;
+}
+
+.button {
+  margin-top: 7px;
+  /* display:block; */
+  line-height: 50px;
+  width :100%;
+  border:none;
+  background: none;
+  border-radius: 12px;
+  font-size: 14px;
+  color :#A7AFBC;
+  text-align: left;
+  padding: 0 17px;
+}
+
+.button img {
+  margin-right :15px;
+}
+
+.activeButton {
+  background: #F0F5FA;
+}
+
+.button:hover{
+  background: #F0F5FA;
+}

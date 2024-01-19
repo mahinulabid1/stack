@@ -1,0 +1,60 @@
+.section {
+  width: 100%;
+  padding: 0 38px;
+}
+
+.heading {
+  font-size: 23px;
+  font-weight: 600;
+  color: #323B4B;
+  margin-top: 10px;
+  margin-bottom: 42px;
+}
+
+.threeDot{
+  cursor:pointer;
+}
+
+.userImage{
+  height: 60px;
+  width: 60px;
+  border-radius: 15px;
+  margin-right: 20px;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* table */
+.tableHeading {
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 12px;
+  background: #FAFBFC;
+  line-height: 44px;
+}
+
+.tableData {
+  line-height: 60px;
+  margin: 15px 0;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* width config for table row */
+.tableRow div:nth-of-type(1) {
+  width: 126px;
+  text-align: center;
+}
+
+.tableRow div:nth-of-type(2) {
+  width: 380px;
+}
+
+.tableRow div:nth-of-type(3) {
+  width: 454px;
+}
+
+.tableRow div:nth-of-type(4) {
+  width: 157px;
+  text-align: center;
+}
