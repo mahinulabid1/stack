@@ -18,7 +18,8 @@
   z-index: 10;
   height: 100vh;
   width: 100%;
-  /* background:black; */
+  background:#b0b7c3dc;
+  color: white;
 }
 
 .divCenter {
@@ -26,7 +27,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
+  min-width: 200px;
 }
 
 .message {
