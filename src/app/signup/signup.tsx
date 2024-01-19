@@ -1,9 +1,8 @@
 import React from 'react'
-// import styles from './signup.module.css';
 import NavBasic from '@ui/navBasic/navBasic';
 import Head from '@ui/signIn&signUpHead/head';
-import SignUpForm from '../ui/form/signupForm';
-import SignIAndSignUpTemplate from '../ui/Template/signInAndSignUp/signInAndSignUpTemplate';
+import SignUpForm from '@ui/form/signupForm';
+import SignIAndSignUpTemplate from '@ui/Template/signInAndSignUp/signInAndSignUpTemplate';
 import HelmetComponent from '../helmet';
 
 
@@ -13,6 +12,7 @@ const SignupPage: React.FC = () => {
     <>
       <HelmetComponent title="Stack - Sign Up" />
       <NavBasic />
+
       <SignIAndSignUpTemplate
         Head = {
           <Head

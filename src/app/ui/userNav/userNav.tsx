@@ -11,14 +11,14 @@ const UserNavRightSide: React.FC = () => {
       <div className={`${styles.userNavContainer} ${styles.userRightNavContainer} dFlex dSpaceBetween dAlignItemsCenter`}>
         <div>
 
-          <div className={`${styles.searchBarContainer}`}> 
+          <div className={styles.searchBarContainer}> 
             <input type='text' placeholder='search' />
             <img src="./searchIcon.svg" alt="Search" />
           </div>
           
         </div> 
 
-        <div className={` dFlex dAlignItemsCenter`}>
+        <div className="dFlex dAlignItemsCenter">
 
           <button className={styles.notificationButton}>
             <img src="./notificationBellIcon.png" alt="Notification Bell" />

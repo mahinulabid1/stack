@@ -11,6 +11,7 @@ Follow this step to test:
 * Add this folder to `vs code workspace`.
 * Start development server: 
 ```console
+npm install
 npm run dev
 ```
 

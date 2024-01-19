@@ -1,3 +1,7 @@
+/**
+ * this file handles password strenth indicator function
+ */
+
 import React, { useState, useEffect } from 'react';
 import styles from './passStrengthIndicator.module.css';
 

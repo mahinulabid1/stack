@@ -1,11 +1,8 @@
 import React from 'react'
-import styles from '@ui/form/formStyle.module.css'
 import { useDispatch, useSelector } from 'react-redux';
 import errorDisplayHandler from "@additionalFunction/errorDisplayHandler";
-import formValidate from '@additionalFunction/formValidation';
+import styles from '@ui/form/formStyle.module.css'
 import {
-  setIsFormValid,
-
   setEmailErrDisplay,
   setNameErrDisplay,
   setPasswordErrDisplay,
@@ -18,11 +15,9 @@ interface ComponentProps {
 
 const SignUpButton: React.FC<ComponentProps> = ({clickHandler}) => {
 
-  //connect to redux store
   const dispatch = useDispatch();
 
-  // Step 2: Access the state from the store
-  const emailState = useSelector((state: any) => state.signUpState.email);  // signUpState = name from store.tsx= reducer{}
+  const emailState = useSelector((state: any) => state.signUpState.email);
   const nameState = useSelector((state: any) => state.signUpState.name);
   const termsAndConditionState = useSelector((state: any) => state.signUpState.termsAndCondition);
   const passStrengthState = useSelector((state: any) => state.signUpState.passStrength);
@@ -30,19 +25,10 @@ const SignUpButton: React.FC<ComponentProps> = ({clickHandler}) => {
   return (
     <>
       <div className={styles.inputSection}>
-        <div className={styles.inputSection} key={'04'}>
+        <div className={styles.inputSection}>
           <button
             className={styles.submitButton}
             onClick={(e) => {
-              // formValidation();
-              // formValidate.signUp({
-              //   emailState,
-              //   nameState,
-              //   passStrengthState,
-              //   termsAndConditionState,
-              //   setIsFormValid,
-              //   dispatch
-              // })
               clickHandler();
 
               errorDisplayHandler.handler.signUp({
@@ -56,6 +42,7 @@ const SignUpButton: React.FC<ComponentProps> = ({clickHandler}) => {
                 setTermsAndConditionErrDisplay,
                 setNameErrDisplay,
               });
+
               e.preventDefault();
             }}
           >

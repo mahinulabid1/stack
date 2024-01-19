@@ -30,8 +30,8 @@ const HelmetComponent: React.FC<ComponentProps> = ({ title }) => {
         {/* Twitter Tags */}
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content="Stack, a react application that interacts with API." />
-        <meta name="twitter:image" content="https://www.example.com/image.jpg" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://www.stack.com/image.jpg" />
+        <meta name="twitter:card" content="dummy content" />
       </Helmet>
     </>
   )

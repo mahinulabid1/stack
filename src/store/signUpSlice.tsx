@@ -29,10 +29,9 @@ const initialState:TypeSignUpState = {
 };
 
 const signUpSlice = createSlice({
-  name: 'signUpState', // it doesn't matter, its not used anywhere
+  name: 'signUpState', 
   initialState,
   reducers: {
-    //here will contain all the method it is like setState
     setEmail : (state, action) => {
       state.email = action.payload
     },

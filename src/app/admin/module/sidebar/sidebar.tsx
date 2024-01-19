@@ -1,11 +1,11 @@
 import React from 'react'
-import styles from './sidebar.module.css'
 import { UserNavLeftSide } from '@app/ui/userNav/userNav'
+import styles from './sidebar.module.css'
 
 const Sidebar: React.FC = () => {
   return (
     <>
-      <aside className={`${styles.sidebarContainer}`}>
+      <aside className={styles.sidebarContainer}>
         
           <UserNavLeftSide />
 

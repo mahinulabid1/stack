@@ -17,6 +17,7 @@ type SignInArg = {
 }
 
 const formValidate = {
+
   signUp: (arg: SignUpArg):void => {
 
     const emailValid: boolean = isValidEmail(arg.emailState);
@@ -26,7 +27,6 @@ const formValidate = {
     } else {
       arg.dispatch(arg.setIsFormValid(false))
     }
-
   },
 
   signIn: (arg: SignInArg):void => {
@@ -37,7 +37,6 @@ const formValidate = {
     } else {
       arg.dispatch(arg.setIsFormValid(false))
     }
-    
   }
 }
 

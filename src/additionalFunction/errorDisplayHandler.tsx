@@ -1,6 +1,6 @@
 /**
- * this file handles when and which error to be displayed
- * in the file '@ui/form/signInForm.tsx' & '@ui/form/signUpForm.tsx'
+ * this file handles when and which error to be displayed in form
+ * path : '@ui/form/signInForm.tsx' , '@ui/form/signUpForm.tsx'
  */
 import isValidEmail from '@additionalFunction/emailFormatValidation';
 
@@ -62,6 +62,7 @@ const handler = {
   },
 
   signIn: (arg: SignInArg) => {
+
     const emailValid: boolean = isValidEmail(arg.emailState);
     if (emailValid) {
       arg.dispatch(arg.setEmailErrDisplay('dNone')) 
@@ -77,11 +78,10 @@ const handler = {
       arg.dispatch(arg.setPasswordErrDisplay('')) 
     }
   }
-
-
 }
 
 const errorDisplayHandler: any = {
+  // more will be added
   handler
 }
 

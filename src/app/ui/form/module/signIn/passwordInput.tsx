@@ -1,7 +1,7 @@
-import React from 'react';
-import styles from '@ui/form/formStyle.module.css'
+import React, {useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import formValidate from '@additionalFunction/formValidation';
+import styles from '@ui/form/formStyle.module.css'
 import { 
   setPassword,
   setIsFormValid,
@@ -11,10 +11,20 @@ import {
 const PasswordInput: React.FC = () => {
   const dispatch = useDispatch();
 
-  // Access the state from the store
+  const [passwordInputType, setPaswordInputType ] = useState<string>('password')
+
   const passwordErrDisplayState = useSelector((state: any) => state.signInState.passwordErrDisplay);
-  const emailState = useSelector((state: any) => state.signInState.email);  // signInState = name from store.tsx= reducer{}
+  const emailState = useSelector((state: any) => state.signInState.email);
   const passwordState = useSelector((state: any) => state.signInState.password);
+
+  const changePasswordInputType = ():void => {
+    if(passwordInputType === 'password') {
+      setPaswordInputType('text');
+    }
+    else {
+      setPaswordInputType('password')
+    }
+  }
 
   return (
     <>
@@ -23,7 +33,7 @@ const PasswordInput: React.FC = () => {
           <img src="./lockIcon.svg" alt="" />
           <input
             className={styles.formInput}
-            type="password"
+            type={passwordInputType}
             placeholder='Enter password' name='password'
             onChange={(event) => {
               dispatch(setPassword(event.target.value))
@@ -35,11 +45,21 @@ const PasswordInput: React.FC = () => {
               })
             }}
           />
-{/* git add src/app/ui/form/module/ && git commit -m 'refactor validation and other function, add loading bar' */}
-          <img src="./eye.svg" alt="" />
+
+          <img 
+            src="./eye.svg" 
+            alt="see password" 
+            onClick = {()=>{
+              changePasswordInputType();
+            }}
+          />
 
         </div>
-        <p className={styles.errorMessage + ` ${passwordErrDisplayState}`}>Please enter password </p>
+
+        <p className={styles.errorMessage + ` ${passwordErrDisplayState}`}>
+          Please enter password 
+        </p>
+
       </div>
     </>
   )

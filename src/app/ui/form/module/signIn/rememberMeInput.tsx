@@ -1,14 +1,13 @@
 import React from 'react';
-import styles from '@ui/form/formStyle.module.css'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setRememberMe } from '@store/signInSlice';
+import styles from '@ui/form/formStyle.module.css'
 
 const RememberMeInput: React.FC = () => {
   const dispatch = useDispatch();
 
-  // Access the state from the store
-  // signInState = name from store.tsx= reducer{}
-  // const rememberMeState = useSelector((state: any) => state.signInState.rememberMe);
+  const rememberMeState = useSelector((state: any) => state.signInState.rememberMe);
+  // Message: incomplete rememberMe functionality. [related to cookie expire time]
 
   return (
     <>

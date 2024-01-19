@@ -11,6 +11,7 @@ const SignIAndSignUpTemplate: React.FC<ComponentProps> = ({Head, Form}) => {
     <>
       <section className={styles.section}>
         <div className={styles.centerContainer}>
+          
           {Head}
           {Form}
 

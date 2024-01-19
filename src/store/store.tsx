@@ -7,11 +7,10 @@ import loadingSlice from './loadingSlice';
 
 export const store = configureStore({
   reducer: {
-    // have to add all modular reducer here
     signUpState: signUpReducer,
-    signInState: signInReducer, // related to redux global state
+    signInState: signInReducer, 
     loadingState: loadingSlice,
-    [API.reducerPath ] : API.reducer, // related to RTK query
+    [API.reducerPath ] : API.reducer, 
   },
 
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(API.middleware)
@@ -19,10 +18,3 @@ export const store = configureStore({
 })
 
 setupListeners(store.dispatch)
-
-// export {store};
-
-// Infer the `RootState` and `AppDispatch` types from the store itself
-// export type RootState = ReturnType<typeof store.getState>
-// // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-// export type AppDispatch = typeof store.dispatch

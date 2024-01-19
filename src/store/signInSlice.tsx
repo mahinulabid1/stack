@@ -20,7 +20,7 @@ const initialState: TypeSignIn = {
 }
 
 const signInSlice = createSlice({
-  name: 'signInSlice', // doesn't matter what the name is
+  name: 'signInSlice',
   initialState,
   reducers: {
     setEmail : (state, action) => {

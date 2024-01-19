@@ -1,19 +1,10 @@
 import React, {useEffect} from 'react'
-import styles from '@ui/form/formStyle.module.css'
 import { useDispatch, useSelector } from 'react-redux';
+import styles from '@ui/form/formStyle.module.css'
 import formValidate from '@additionalFunction/formValidation';
 import {
-  setEmail,
-  setName,
-  setPassword,
   setTermsAndCondition,
-  setPassStrength,
   setIsFormValid,
-
-  setEmailErrDisplay,
-  setNameErrDisplay,
-  setPasswordErrDisplay,
-  setTermsAndConditionErrDisplay
 } from '@store/signUpSlice';
 
 
@@ -22,15 +13,11 @@ const TermsAndCondition: React.FC = () => {
 
   const dispatch = useDispatch();
 
-  // Access the state from the store
   const termsAndConditionErrDisplayState = useSelector((state: any) => state.signUpState.termsAndConditionErrDisplay);
-  const emailErrDisplayState = useSelector((state: any) => state.signUpState.emailErrDisplay); // signUpState = name from store.tsx= reducer{}
-  const emailState = useSelector((state: any) => state.signUpState.email);  // signUpState = name from store.tsx= reducer{}
+  const emailState = useSelector((state: any) => state.signUpState.email);
   const nameState = useSelector((state: any) => state.signUpState.name);
-  const passwordState = useSelector((state: any) => state.signUpState.password);
   const termsAndConditionState = useSelector((state: any) => state.signUpState.termsAndCondition);
   const passStrengthState = useSelector((state: any) => state.signUpState.passStrength);
-  const isFormValidState = useSelector((state: any) => state.signUpState.isFormValid);
 
   useEffect(() =>{
     formValidate.signUp({
@@ -43,10 +30,11 @@ const TermsAndCondition: React.FC = () => {
     });
   }, [termsAndConditionState])
 
+
   return (
     <>
       <div className={styles.inputSection}>
-        <div className={styles.inputContainer} key={'04'}>
+        <div className={styles.inputContainer}>
           <input
             type="checkbox"
             name='terms&condition'

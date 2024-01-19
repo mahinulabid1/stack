@@ -1,20 +1,12 @@
-import React, {useEffect} from 'react'
-import styles from '@ui/form/formStyle.module.css'
+import React, {useEffect, useState} from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import checkPasswordStrength from '@additionalFunction/checkPasswordStrength'
 import formValidate from '@additionalFunction/formValidation';
+import styles from '@ui/form/formStyle.module.css'
 import {
-  setEmail,
-  setName,
   setPassword,
-  setTermsAndCondition,
   setPassStrength,
   setIsFormValid,
-
-  setEmailErrDisplay,
-  setNameErrDisplay,
-  setPasswordErrDisplay,
-  setTermsAndConditionErrDisplay
 } from '@store/signUpSlice';
 
 
@@ -22,19 +14,27 @@ import {
 const PasswordInput: React.FC = () => {
   const dispatch = useDispatch();
 
-  // Access the state from the store
-  const passwordErrDisplayState = useSelector((state: any) => state.signUpState.passwordErrDisplay);// signUpState = name from store.tsx= reducer{}
-  const emailErrDisplayState = useSelector((state: any) => state.signUpState.emailErrDisplay); // signUpState = name from store.tsx= reducer{}
-  const emailState = useSelector((state: any) => state.signUpState.email);  // signUpState = name from store.tsx= reducer{}
+  const [passwordInputType, setPaswordInputType ] = useState<string>('password')
+
+  const passwordErrDisplayState = useSelector((state: any) => state.signUpState.passwordErrDisplay);
+  const emailState = useSelector((state: any) => state.signUpState.email);  
   const nameState = useSelector((state: any) => state.signUpState.name);
   const passwordState = useSelector((state: any) => state.signUpState.password);
   const termsAndConditionState = useSelector((state: any) => state.signUpState.termsAndCondition);
   const passStrengthState = useSelector((state: any) => state.signUpState.passStrength);
-  const isFormValidState = useSelector((state: any) => state.signUpState.isFormValid);
 
   const passStrengthOperation = (password: string) => {
     const passStrength: number = checkPasswordStrength(password);
     dispatch(setPassStrength(passStrength));
+  }
+
+  const changePasswordInputType = ():void => {
+    if(passwordInputType === 'password') {
+      setPaswordInputType('text');
+    }
+    else {
+      setPaswordInputType('password')
+    }
   }
 
   useEffect(() =>{
@@ -51,12 +51,12 @@ const PasswordInput: React.FC = () => {
 
   return (
     <>
-      <div className={styles.inputSection} key={'03'}>
+      <div className={styles.inputSection}>
         <div className={styles.inputContainer}>
-          <img src="./lockIcon.svg" alt="" />
+          <img src="./lockIcon.svg" alt="lock icon" />
           <input
             className={styles.formInput}
-            type="password"
+            type={passwordInputType}
             placeholder='Your Password'
             name='name'
             onChange={(event) => {
@@ -65,7 +65,13 @@ const PasswordInput: React.FC = () => {
             }}
           />
 
-          <img src="./eye.svg" alt="" />
+          <img 
+            src="./eye.svg" 
+            alt="see password" 
+            onClick = {()=>{
+              changePasswordInputType();
+            }}
+          />
 
         </div>
 

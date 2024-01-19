@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import styles from './userSection.module.css'
 import { UserNavRightSide } from '@/app/ui/userNav/userNav'
 import { useGetUserInfoQuery } from '@store/apiSlice';
+import styles from './userSection.module.css'
 
 const UserSection: React.FC = () => {
 
@@ -10,19 +10,16 @@ const UserSection: React.FC = () => {
 
 
   useEffect(() => {
-    if (isLoadingData) {
-      console.log('Data is loading!')
-    } else if (userError) {
-      console.log(userError);
-    } else if (userData) {
+    if (userData) {
       setFetchedData(userData.data);
-      console.log(userData.data);
     }
   }, [userData, userError, isLoadingData]);
 
+
   return (
     <>
-      <section className={`${styles.section}`}>
+      <section className={styles.section}>
+
         <nav>
           <UserNavRightSide />
         </nav>
@@ -38,8 +35,7 @@ const UserSection: React.FC = () => {
             <div>OPTIONS</div>
           </div>
 
-
-          {/* table data, will be iterated and create multiple component */}
+          {/* database data render */}
           {
             fetchedData.map((current: any, index: number) => {
               return (
