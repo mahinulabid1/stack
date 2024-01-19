@@ -1,6 +1,7 @@
-import React, {useEffect} from 'react'
+import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux';
-import { CookiesProvider, useCookies } from "react-cookie";
+import { useCookies } from "react-cookie";
+import { useNavigate } from 'react-router-dom';
 import styles from './formStyle.module.css'
 import PassStrengthIndicator from './passStrengthIndicator';
 import EmailInput from './module/signUp/emailInput';
@@ -10,14 +11,14 @@ import TermsAndCondition from './module/signUp/termsAndCondition';
 import SignUpButton from './module/signUp/signUpButton';
 
 import {
-  useGetUserInfoQuery,
   useCreateNewUserMutation,
   useLoginMutation
 } from '@store/apiSlice';
 
 const SignUpForm: React.FC = () => {
+  const navigate = useNavigate();
 
-  const [tokenCookie, setTokenCokie, removeTokenCookie] = useCookies(['token']);
+  const [cookie, setCookie] = useCookies(['token', 'username']);
 
   // Access the state from the store
   const emailState = useSelector((state: any) => state.signUpState.email);  // signUpState = name from store.tsx= reducer{}
@@ -27,15 +28,15 @@ const SignUpForm: React.FC = () => {
   const passStrengthState = useSelector((state: any) => state.signUpState.passStrength);
   const isFormValidState = useSelector((state: any) => state.signUpState.isFormValid);
 
-  const [createNewUser, { data:newUserData, error:newUserError, isLoading:isLoadingNewUser }] = useCreateNewUserMutation();  //data:newUserData , this is not complex destruction. I'm simply renaming the variable. "data" give it a new name "newUserData". That's what it means
-  const [login , {data:loginData, error:loginError, isLoading:isLoadingLogin}] = useLoginMutation();
+  const [createNewUser, { data: newUserData, error: newUserError, isLoading: isLoadingNewUser }] = useCreateNewUserMutation();  //data:newUserData , this is not complex destruction. I'm simply renaming the variable. "data" give it a new name "newUserData". That's what it means
+  const [login, { data: loginData, error: loginError, isLoading: isLoadingLogin }] = useLoginMutation();
 
   // if form is valid, perform - create new user
   useEffect(() => {
     console.log('validating!')
     if (isFormValidState) {
-      let data:any = {
-        email : emailState,
+      let data: any = {
+        email: emailState,
         password: passwordState,
         name: nameState
       }
@@ -46,17 +47,17 @@ const SignUpForm: React.FC = () => {
 
 
   // if "create new user" is successful, perform "login" query
-  useEffect(()=>{
-    if(newUserError){
+  useEffect(() => {
+    if (newUserError) {
       console.log(newUserError);
     }
-    else if(isLoadingNewUser) {
+    else if (isLoadingNewUser) {
       console.log("Processing new user data!")
     }
-    else if(newUserData){
+    else if (newUserData) {
       // perform login query and redirect to dashboard
       const data = {
-        email : 'eve.holt@reqres.in', // reqres.in API not accepting any other username
+        email: 'eve.holt@reqres.in', // reqres.in API not accepting any other username
         password: passwordState // reqres.in API  accepting all password 
       }
       login(data);
@@ -64,20 +65,32 @@ const SignUpForm: React.FC = () => {
   }, [newUserData, newUserError, isLoadingNewUser])
 
   // if "login" successful, set token cookie and redirect to dashboard
-  useEffect(()=>{
-    if(loginError){
+  useEffect(() => {
+    if (loginError) {
       console.log(loginError)
     }
-    else if(isLoadingLogin) {
+    else if (isLoadingLogin) {
       console.log('Authenticating User!');
     }
-    else if(loginData) {
+    else if (loginData) {
       console.log("login complete!")
       console.log(loginData.token);
-      setTokenCokie('token', loginData.token);
+      setCookie('token', loginData.token);
+      setCookie('username', 'eve.holt@reqres.in');
+
       // redirect to dashboard
+      navigate('/useradmin');
     }
   }, [loginData, loginError, isLoadingLogin])
+
+
+  // restrict loggedin user from revisiting signIn
+  useEffect(() => {
+    if (cookie.token) {
+      navigate('/useradmin')
+    }
+  }, [])
+
 
   return (
     <>
