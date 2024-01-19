@@ -1,4 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { setupListeners } from '@reduxjs/toolkit/query'
+import { API } from './apiSlice';
 import signUpReducer from './signUpSlice';
 import signInReducer from './signInSlice';
 
@@ -6,9 +8,15 @@ export const store = configureStore({
   reducer: {
     // have to add all modular reducer here
     signUpState: signUpReducer,
-    signInState: signInReducer
+    signInState: signInReducer, // related to redux global state
+    [API.reducerPath ] : API.reducer, // related to RTK query
   },
+
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(API.middleware)
+  
 })
+
+setupListeners(store.dispatch)
 
 // export {store};
 
