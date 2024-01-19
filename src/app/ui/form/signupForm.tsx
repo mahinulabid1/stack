@@ -16,9 +16,7 @@ import {
   useLoginMutation
 } from '@store/apiSlice';
 
-// import {
-//   setMessage
-// } from '@store/loadingSlice';
+
 import { setMessage } from '@store/loadingSlice';
 
 
@@ -175,14 +173,6 @@ const SignUpForm: React.FC = () => {
         <Loading message={loadingMessageState} />
       </div>
 
-
-      TEST PHASE <br /> <br />
-      {`name state:___ ${nameState}`} , <br />
-      {`email state:___ ${emailState}`}, <br />
-      {`password State:___ ${passwordState}`}, <br />
-      {`terms and condition:___ ${termsAndConditionState}`}, <br />
-      {`password Strength:___ ${passStrengthState}`}, <br />
-      {`is the form valid:___ ${isFormValidState}`} <br />
     </>
   )
 }

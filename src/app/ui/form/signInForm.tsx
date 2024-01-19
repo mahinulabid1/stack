@@ -125,13 +125,6 @@ const SignInForm: React.FC = () => {
       <br />
       <br />
 
-      TEST PHASE
-      {`Email State: ___ ${emailState}`} <br />
-      {`password State: ___ ${passwordState}`} <br />
-      {`rememberme State: ___ ${rememberMeState}`} <br />
-      {`form valid State: ___ ${isFormValidState}`} <br />
-      {/* {decodeURI(usernameCookie.username)} <br/> */}
-      {/* {usernameCookie.username} */}
     </>
   )
 }
